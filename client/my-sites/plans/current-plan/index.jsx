@@ -40,7 +40,6 @@ import ScanProductThankYou from './current-plan-thank-you/scan-thank-you';
 import AntiSpamProductThankYou from './current-plan-thank-you/anti-spam-thank-you';
 import SearchProductThankYou from './current-plan-thank-you/search-thank-you';
 import { isFreeJetpackPlan, isFreePlan } from 'lib/products-values';
-import getHasAvailableConciergeSessions from 'state/selectors/get-concierge-has-available-sessions';
 import QueryConciergeInitial from 'components/data/query-concierge-initial';
 
 /**
@@ -75,13 +74,9 @@ class CurrentPlan extends Component {
 	}
 
 	isLoading() {
-		const {
-			selectedSite,
-			isRequestingSitePlans: isRequestingPlans,
-			hasAvailableConciergeSessions,
-		} = this.props;
+		const { selectedSite, isRequestingSitePlans: isRequestingPlans } = this.props;
 
-		return ! selectedSite || isRequestingPlans || null === hasAvailableConciergeSessions;
+		return ! selectedSite || isRequestingPlans;
 	}
 
 	renderThankYou() {
@@ -231,6 +226,5 @@ export default connect( ( state, { requestThankYou } ) => {
 		shouldShowDomainWarnings: ! isJetpack || isAutomatedTransfer,
 		showJetpackChecklist: isJetpackNotAtomic,
 		showThankYou: requestThankYou && isJetpackNotAtomic,
-		hasAvailableConciergeSessions: getHasAvailableConciergeSessions( state ),
 	};
 } )( localize( CurrentPlan ) );
