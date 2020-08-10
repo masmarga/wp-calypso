@@ -431,7 +431,7 @@ const sections = [
 		paths: [ '/block-editor', '/site-editor' ],
 		module: 'gutenberg/editor',
 		group: 'gutenberg',
-		secondary: false,
+		secondary: true,
 		trackLoadPerformance: true,
 	},
 	{

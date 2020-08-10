@@ -24,15 +24,15 @@ export const getGutenbergEditorUrl = ( state, siteId, postId = null, postType = 
 	}
 
 	if ( postId ) {
-		return `/block-editor${ getEditorPath( state, siteId, postId, postType ) }`;
+		return `/block-editor/without-iframe${ getEditorPath( state, siteId, postId, postType ) }`;
 	}
 
 	const siteSlug = getSiteSlug( state, siteId );
 
 	if ( 'post' === postType || 'page' === postType ) {
-		return `/block-editor/${ postType }/${ siteSlug }`;
+		return `/block-editor/without-iframe/${ postType }/${ siteSlug }`;
 	}
-	return `/block-editor/edit/${ postType }/${ siteSlug }`;
+	return `/block-editor/without-iframe/edit/${ postType }/${ siteSlug }`;
 };
 
 export default getGutenbergEditorUrl;

@@ -7,7 +7,7 @@ import page from 'page';
  * Internal dependencies
  */
 import { siteSelection, sites } from 'my-sites/controller';
-import { authenticate, post, redirect, siteEditor } from './controller';
+import { authenticate, post, redirect, siteEditor, gutenbergWithoutIframe } from './controller';
 import config from 'config';
 import { makeLayout, render as clientRender } from 'controller';
 
@@ -36,6 +36,16 @@ export default function () {
 	);
 	page( '/block-editor/post/:site?', siteSelection, redirect, makeLayout, clientRender );
 
+	page(
+		'/block-editor/without-iframe/post/:site/:post?',
+		siteSelection,
+		redirect,
+		authenticate,
+		gutenbergWithoutIframe,
+		makeLayout,
+		clientRender
+	);
+
 	page( '/block-editor/page', siteSelection, sites, makeLayout, clientRender );
 	page(
 		'/block-editor/page/:site/:post?',
@@ -46,6 +56,17 @@ export default function () {
 		makeLayout,
 		clientRender
 	);
+
+	page(
+		'/block-editor/without-iframe/page/:site/:post?',
+		siteSelection,
+		redirect,
+		authenticate,
+		gutenbergWithoutIframe,
+		makeLayout,
+		clientRender
+	);
+
 	page( '/block-editor/page/:site?', siteSelection, redirect, makeLayout, clientRender );
 
 	if ( config.isEnabled( 'manage/custom-post-types' ) ) {
