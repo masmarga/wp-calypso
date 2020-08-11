@@ -7,7 +7,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { PRODUCTS_WITH_OPTIONS, OPTIONS_SLUG_MAP } from './constants';
+import { PRODUCTS_WITH_OPTIONS, OPTIONS_SLUG_MAP, PLANS_INCLUDED_PRODUCTS } from './constants';
 import {
 	TERM_ANNUALLY,
 	TERM_MONTHLY,
@@ -70,6 +70,12 @@ export function durationToText( duration: Duration ): TranslateResult {
  */
 
 export function productButtonLabel( product: SelectorProduct ): TranslateResult {
+	if ( product.owned ) {
+		return slugIsJetpackPlanSlug( product.productSlug )
+			? translate( 'Manage Plan' )
+			: translate( 'Manage Subscription' );
+	}
+
 	return (
 		product.buttonLabel ??
 		translate( 'Get %s', {
@@ -77,6 +83,25 @@ export function productButtonLabel( product: SelectorProduct ): TranslateResult 
 			context: '%s is the name of a product',
 		} )
 	);
+}
+
+export function productBadgeLabel(
+	product: SelectorProduct,
+	currentPlan?: string | null
+): TranslateResult | undefined {
+	if ( product.owned ) {
+		return slugIsJetpackPlanSlug( product.productSlug )
+			? translate( 'Your plan' )
+			: translate( 'You own this' );
+	}
+
+	if (
+		currentPlan &&
+		PLANS_INCLUDED_PRODUCTS[ currentPlan ] &&
+		PLANS_INCLUDED_PRODUCTS[ currentPlan ].includes( product.productSlug )
+	) {
+		return translate( 'Included in your plan' );
+	}
 }
 
 export function getProductPrices(

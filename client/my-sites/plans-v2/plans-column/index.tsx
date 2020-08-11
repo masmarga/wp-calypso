@@ -8,7 +8,13 @@ import { useSelector } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { durationToText, slugToItem, itemToSelectorProduct, productButtonLabel } from '../utils';
+import {
+	durationToText,
+	slugToItem,
+	itemToSelectorProduct,
+	productButtonLabel,
+	productBadgeLabel,
+} from '../utils';
 import {
 	PRODUCTS_TYPES,
 	SELECTOR_PLANS,
@@ -62,6 +68,7 @@ const PlanComponent = ( {
 			description={ plan.description }
 			currencyCode={ currencyCode }
 			billingTimeFrame={ durationToText( plan.term ) }
+			badgeLabel={ productBadgeLabel( plan ) }
 			buttonLabel={ productButtonLabel( plan ) }
 			onButtonClick={ () => onClick( plan ) }
 			features={ { items: [] } }
