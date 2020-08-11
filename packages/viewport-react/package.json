@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "React helpers for tracking viewport changes",
 	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
+	"module": "src/index.js",
 	"sideEffects": false,
 	"repository": {
 		"type": "git",
@@ -30,8 +30,8 @@
 	},
 	"scripts": {
 		"clean": "npx rimraf dist",
-		"prepublish": "yarn run clean",
-		"prepare": "transpile"
+		"build": "transpile",
+		"prepack": "yarn run clean && yarn run build"
 	},
 	"publishConfig": {
 		"access": "public"
