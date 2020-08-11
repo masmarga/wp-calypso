@@ -10,6 +10,7 @@ import { siteSelection, sites } from 'my-sites/controller';
 import { authenticate, post, redirect, siteEditor, gutenbergWithoutIframe } from './controller';
 import config from 'config';
 import { makeLayout, render as clientRender } from 'controller';
+import { performanceTrackerStart } from 'lib/performance-tracking/performance-tracker-start';
 
 export default function () {
 	page( '/block-editor', '/block-editor/post' );
@@ -41,6 +42,7 @@ export default function () {
 		siteSelection,
 		redirect,
 		authenticate,
+		performanceTrackerStart( 'without-iframe' ),
 		gutenbergWithoutIframe,
 		makeLayout,
 		clientRender
