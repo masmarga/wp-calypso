@@ -7,6 +7,6 @@
 		"outDir": "dist/cjs",
 		"composite": false,
 		"incremental": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__calypso-analytics--cjs"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__calypso-analytics--cjs"
 	}
 }

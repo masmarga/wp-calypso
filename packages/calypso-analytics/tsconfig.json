@@ -29,7 +29,7 @@
 		"importHelpers": true,
 
 		"composite": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__calypso-analytics"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__calypso-analytics"
 	},
 	"include": [ "src" ],
 	"exclude": [ "**/docs/*", "**/test/*" ]

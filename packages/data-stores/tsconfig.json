@@ -32,7 +32,7 @@
 		"importHelpers": true,
 
 		"composite": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__data-stores"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__data-stores"
 	},
 	"include": [ "src" ],
 	"exclude": [ "**/docs/*", "**/test/*" ]

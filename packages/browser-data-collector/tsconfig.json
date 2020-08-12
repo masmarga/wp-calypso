@@ -29,7 +29,7 @@
 		"importHelpers": true,
 
 		"composite": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__browser-data-collector"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__browser-data-collector"
 	},
 	"include": [ "src" ],
 	"exclude": [ "**/docs/*", "**/test/*" ]

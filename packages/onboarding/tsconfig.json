@@ -29,7 +29,7 @@
 		"importsNotUsedAsValues": "error",
 		"importHelpers": true,
 		"composite": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__onboarding"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__onboarding"
 	},
 	"include": [ "src" ],
 	"exclude": [ "**/test/*" ],

@@ -8,6 +8,6 @@
 		"outDir": "dist/cjs",
 		"composite": false,
 		"incremental": true,
-		"tsBuildInfoFile": "../../.tsc-cache/packages__react-i18n--cjs"
+		"tsBuildInfoFile": "../../.cache/tsc/packages__react-i18n--cjs"
 	}
 }
