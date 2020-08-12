@@ -7,7 +7,7 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { PRODUCTS_WITH_OPTIONS, OPTIONS_SLUG_MAP, PLANS_INCLUDED_PRODUCTS } from './constants';
+import { PRODUCTS_WITH_OPTIONS, OPTIONS_SLUG_MAP } from './constants';
 import {
 	TERM_ANNUALLY,
 	TERM_MONTHLY,
@@ -15,7 +15,7 @@ import {
 	JETPACK_LEGACY_PLANS,
 	JETPACK_RESET_PLANS,
 } from 'lib/plans/constants';
-import { getPlan, getMonthlyPlanByYearly } from 'lib/plans';
+import { getPlan, getMonthlyPlanByYearly, planHasFeature } from 'lib/plans';
 import { JETPACK_PRODUCT_PRICE_MATRIX } from 'lib/products-values/constants';
 import { Product, JETPACK_PRODUCTS_LIST, objectIsProduct } from 'lib/products-values/products-list';
 import { getJetpackProductDisplayName } from 'lib/products-values/get-jetpack-product-display-name';
@@ -95,11 +95,7 @@ export function productBadgeLabel(
 			: translate( 'You own this' );
 	}
 
-	if (
-		currentPlan &&
-		PLANS_INCLUDED_PRODUCTS[ currentPlan ] &&
-		PLANS_INCLUDED_PRODUCTS[ currentPlan ].includes( product.productSlug )
-	) {
+	if ( currentPlan && planHasFeature( currentPlan, product.productSlug ) ) {
 		return translate( 'Included in your plan' );
 	}
 }
