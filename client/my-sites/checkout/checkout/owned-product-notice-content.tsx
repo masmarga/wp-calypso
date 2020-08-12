@@ -34,8 +34,8 @@ const OwnedProductNoticeContent: FunctionComponent< Props > = ( { product, selec
 		: '/me/purchases/';
 
 	return (
-		<div className="checkout__duplicate-notice">
-			<p className="checkout__duplicate-notice-message">
+		<div className="checkout__conflict-notice">
+			<p className="checkout__conflict-notice-message">
 				{ translate(
 					'You currently own %(product)s. The plan you are about to purchase also includes this product. Consider removing your {{link}}%(product)s subscription{{/link}}.',
 					{
@@ -49,7 +49,7 @@ const OwnedProductNoticeContent: FunctionComponent< Props > = ( { product, selec
 					}
 				) }
 			</p>
-			<a className="checkout__duplicate-notice-link" href={ subscriptionUrl }>
+			<a className="checkout__conflict-notice-link" href={ subscriptionUrl }>
 				{ translate( 'Manage subscription' ) }
 			</a>
 		</div>
