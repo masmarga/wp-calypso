@@ -30,12 +30,6 @@ module.exports.loader = ( { includePaths, prelude, postCssConfig = {}, cacheDire
 			  ]
 			: [] ),
 		{
-			loader: require.resolve( 'cache-loader' ),
-			options: {
-				cacheDirectory: cacheDirectory,
-			},
-		},
-		{
 			loader: require.resolve( 'css-loader' ),
 			options: {
 				importLoaders: 2,
