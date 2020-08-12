@@ -56,7 +56,14 @@ class Block_Patterns {
 
 			// The 'Two Columns of Text' pattern is in the 'columns' and 'text' categories.
 			// Removing 'columns' so it doesn't appear as a category with only a single item.
-			unregister_block_pattern_category( 'columns' );
+
+			/*
+			 * This line prints a warning to the screen which breaks the coming soon redirect
+			 * Comment out for now so we can continue deving the coming soon feature
+			 * Should be fixed properly on the main branch
+			 *
+			 * unregister_block_pattern_category( 'columns' );
+			 */
 		}
 
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
